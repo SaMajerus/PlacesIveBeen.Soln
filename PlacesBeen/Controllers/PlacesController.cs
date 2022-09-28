@@ -1,6 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using PlacesBeen.Models;
 using System.Collections.Generic;
+using System.IO;
+using Microsoft.AspNetCore.Hosting.Internal;
+
 
 namespace PlacesBeen.Controllers
 {
@@ -9,7 +12,7 @@ namespace PlacesBeen.Controllers
     [HttpGet("/places")]
     public ActionResult Index()
     {
-      List<Places> allPlaces = Places.GetAll();
+      List<Place> allPlaces = Place.GetAll();
       return View(allPlaces);
     }
 
@@ -20,24 +23,24 @@ namespace PlacesBeen.Controllers
     }
 
     [HttpPost("/places")]
-    public ActionResult Create(string description)
+    public ActionResult Create(string cityName, string duration, string accomp, string journal)
     {
-      Item myPlace = new Place(description);
+      Place myPlace = new Place(cityName, duration, accomp, journal);
       return RedirectToAction("Index");
     }
 
     [HttpPost("/places/delete")]
     public ActionResult DeleteAll()
     {
-      Item.ClearAll();
+      Place.ClearAll();
       return View();
     }
 
     [HttpGet("/places/{id}")]
     public ActionResult Show(int id)
     {
-      Item foundPlace = Place.Find(id);
-      return View(foundItem);
+      Place foundPlace = Place.Find(id);
+      return View(foundPlace);
     }
 
   }

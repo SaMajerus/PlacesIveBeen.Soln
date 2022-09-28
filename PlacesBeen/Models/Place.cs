@@ -5,29 +5,35 @@ namespace PlacesBeen.Models
   public class Place
   {
     public string CityName { get; set; }
+    public string Duration { get; set; }
+    public string Accomp { get; set; }  //Truncation of "accompanied by" 
+    public string Journal { get; set; }
     public int Id { get; }  //"Read-only" property
-    private static List<Place> _Places = new List<Place> {}; 
+    private static List<Place> _places = new List<Place> {}; 
 
-    public Place(string cityName)
+    public Place(string cityName, string duration, string accomp, string journal)
     {
       CityName = cityName;
-      _Places.Add(this); //Adds Places to '_Places'
-      Id = _Places.Count;
+      Duration = duration;
+      Accomp = accomp;
+      Journal = journal;
+      _places.Add(this); //Adds Places to '_places'
+      Id = _places.Count;
     }
 
     public static List<Place> GetAll()  //'Getter' method
     {
-      return _Places;
+      return _places;
     }
 
     public static void ClearAll()
     {
-      _Places.Clear();
+      _places.Clear();
     }
 
     public static Place Find(int searchId)
     {
-      return _Places[searchId-1];
+      return _places[searchId-1];
     }
 
   }

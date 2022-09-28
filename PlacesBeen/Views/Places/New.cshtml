@@ -2,14 +2,20 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>My To-Do List!</title>
+    <title>My Travel Log!</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   </head>
   <body>
-    <form action="/items" method="post">
-      <label for="description">Add a new item</label>
-      <input id="description" name="description" type="text">
-      <button type="submit">Submit</button>
+    <form action="/places" method="post">
+      <label for="cityName">Add a Travel spot to your Travel Log:</label>
+      <input id="cityName" name="cityName" type="text">
+      <label for="duration">How long was your stay?: </label>
+      <input id="duration" name="duration" type="text">
+      <label for="accomp">If you were accompanied, add the person: </label>
+      <input id="accomp" name="accomp" type="text">
+      <label for="journal">Add a new Journal Log: </label>
+      <input id="journal" name="journal" type="text">
+      <button type="submit">Add to Travel Log</button>
     </form>
   </body>
 </html>
