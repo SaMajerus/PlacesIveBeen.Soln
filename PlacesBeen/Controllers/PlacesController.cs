@@ -1,42 +1,42 @@
 using Microsoft.AspNetCore.Mvc;
-using ToDoList.Models;
+using PlacesBeen.Models;
 using System.Collections.Generic;
 
-namespace ToDoList.Controllers
+namespace PlacesBeen.Controllers
 {
-  public class ItemsController : Controller
+  public class PlacesController : Controller
   {
-    [HttpGet("/items")]
+    [HttpGet("/places")]
     public ActionResult Index()
     {
-      List<Item> allItems = Item.GetAll();
-      return View(allItems);
+      List<Places> allPlaces = Places.GetAll();
+      return View(allPlaces);
     }
 
-    [HttpGet("/items/new")]
+    [HttpGet("/places/new")]
     public ActionResult New()
     {
       return View();
     }
 
-    [HttpPost("/items")]
+    [HttpPost("/places")]
     public ActionResult Create(string description)
     {
-      Item myItem = new Item(description);
+      Item myPlace = new Place(description);
       return RedirectToAction("Index");
     }
 
-    [HttpPost("/items/delete")]
+    [HttpPost("/places/delete")]
     public ActionResult DeleteAll()
     {
       Item.ClearAll();
       return View();
     }
 
-    [HttpGet("/items/{id}")]
+    [HttpGet("/places/{id}")]
     public ActionResult Show(int id)
     {
-      Item foundItem = Item.Find(id);
+      Item foundPlace = Place.Find(id);
       return View(foundItem);
     }
 
