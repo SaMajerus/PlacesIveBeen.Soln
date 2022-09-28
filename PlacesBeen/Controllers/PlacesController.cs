@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using PlacesBeen.Models;
 using System.Collections.Generic;
-using System.IO;
-using Microsoft.AspNetCore.Hosting.Internal;
+//using System.IO;
+//using Microsoft.AspNetCore.Hosting.Internal;
 
 
 namespace PlacesBeen.Controllers
